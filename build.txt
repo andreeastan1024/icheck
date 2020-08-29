@@ -1,0 +1,1 @@
+    "build": "npm run clean && babel . --out-dir build --ignore node_modules,build,tasks,icheck-server && npm run tasks-dist",

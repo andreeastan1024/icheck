@@ -1,0 +1,52 @@
+{
+  "name": "icheck-server",
+  "version": "1.0.0",
+  "description": "iCheck Server",
+  "main": "server.js",
+  "engines": {
+    "node": "13.11.0"
+  },
+  "scripts": {
+    "start": "babel-node server",
+    "server": "nodemon server --exec babel-node --",
+    "dev": "SET NODE_ENV=development && npm run tasks-dev && npm run server",
+    "prod": "SET NODE_ENV=production && npm run tasks-dev && npm run server",
+    "clean": "rimraf build",
+    "dist": "npm run build && SET NODE_ENV=production && node build/server",
+    "tasks-dev": "babel-node tasks/dev.js",
+    "tasks-dist": "babel-node tasks/dist.js",
+    "setup": "npm run tasks-dev && babel-node setup",
+    "setup-dist": "SET NODE_ENV=production && npm run build && node build/setup",
+    "test-mail": "SET NODE_ENV=development & npm run tasks-dev && babel-node testMail"
+  },
+  "author": "iCheck Team",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-flow-strip-types": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-minify": "^0.5.1",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "inquirer": "^7.1.0",
+    "ip": "^1.1.5",
+    "mongoose": "^5.9.4",
+    "nodemailer": "^6.4.6",
+    "nodemailer-express-handlebars": "^3.3.0",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7",
+    "qrcode": "^1.4.4",
+    "rimraf": "^3.0.2",
+    "uniqid": "^5.2.0"
+  },
+  "devDependencies": {}
+}
